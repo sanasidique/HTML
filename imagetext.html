@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Hover Image and Text Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .content {
+            width: 300px;
+            height: 400px;
+            background-color: #f0f0f0;
+            border: 2px solid #ccc;
+            margin: 0 auto;
+            padding: 20px;
+            transition: background-color 0.3s;
+        }
+        .image-container {
+            display: none;
+            margin-top: 50px;
+        }
+        .text-container {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            display: none;
+            margin-top: 30px;
+        }
+        .content:hover {
+            background-color: #d9eaf7;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hover over the box below</h1>
+
+<div class="content" id="contentBox">
+    <p>Hover over this box to see the new content.</p>
+
+    <!-- Image and Text that will be shown on hover -->
+    <div class="image-container" id="imageContainer">
+        <img src="C:\Users\user\Downloads/rainbow.jpeg" alt="New Image" id="newImage">
+    </div>
+    <div class="text-container" id="textContainer">
+        <p>This is the new text displayed on hover!</p>
+    </div>
+</div>
+
+<script>
+    // Get the content box and the elements to show/hide
+    const contentBox = document.getElementById('contentBox');
+    const imageContainer = document.getElementById('imageContainer');
+    const textContainer = document.getElementById('textContainer');
+
+    // Event listener for mouse over
+    contentBox.addEventListener('mouseover', function() {
+        imageContainer.style.display = 'block';  // Show image
+        textContainer.style.display = 'block';   // Show text
+    });
+
+    // Event listener for mouse out
+    contentBox.addEventListener('mouseout', function() {
+        imageContainer.style.display = 'none';  // Hide image
+        textContainer.style.display = 'none';   // Hide text
+    });
+</script>
+
+</body>
+</html>
