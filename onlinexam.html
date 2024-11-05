@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Online Exam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        .question label {
+            display: block;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Online Exam</h2>
+
+    <form id="quizForm">
+        <!-- Question 1 -->
+        <div class="question">
+            <p>1. which is the greatest number?</p>
+            <label><input type="radio" name="q1" value="a"> 24</label>
+            <label><input type="radio" name="q1" value="b"> 42</label>
+            <label><input type="radio" name="q1" value="c"> 64</label>
+            <label><input type="radio" name="q1" value="d"> 13</label>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p>2. What is the largest planet in our solar system?</p>
+            <label><input type="radio" name="q2" value="a"> Earth</label>
+            <label><input type="radio" name="q2" value="b"> Mars</label>
+            <label><input type="radio" name="q2" value="c"> Jupiter</label>
+            <label><input type="radio" name="q2" value="d"> Saturn</label>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p>3. Who wrote the play "Romeo and Juliet"?</p>
+            <label><input type="radio" name="q3" value="a"> Charles Dickens</label>
+            <label><input type="radio" name="q3" value="b"> William Shakespeare</label>
+            <label><input type="radio" name="q3" value="c"> Mark Twain</label>
+            <label><input type="radio" name="q3" value="d"> Jane Austen</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="button" onclick="submitExam()">Submit</button>
+    </form>
+
+    <div id="result" class="result" style="display:none;"></div>
+</div>
+
+<script>
+function submitExam() {
+    
+    var answers = {
+        q1: "c",          q2: "c",  
+        q3: "b"  
+    };
+
+        var score = 0;
+    
+        for (var i = 1; i <= 3; i++) {
+        var selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selectedAnswer && selectedAnswer.value === answers[`q${i}`]) {
+            score++;  // Increase score if the answer is correct
+        }
+    }
+
+        var resultText = `You scored ${score} out of 3.`;
+    document.getElementById("result").textContent = resultText;
+    document.getElementById("result").style.display = "block";
+}
+</script>
+
+</body>
+</html>
